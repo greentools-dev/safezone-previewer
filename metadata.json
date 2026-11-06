@@ -1,0 +1,6 @@
+{
+  "name": "Shorts & Reels Safe Zone Previewer",
+  "description": "Test your vertical video hooks, text captions, and stickers against TikTok, Instagram Reels, and YouTube Shorts UI overlays. 100% private, client-side video previewer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

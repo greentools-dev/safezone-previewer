@@ -1,0 +1,1540 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shorts & Reels Safe Zone Previewer — Free TikTok, Reels & Shorts Overlay Tool</title>
+    <meta
+      name="description"
+      content="Test your vertical video hooks, text captions, and stickers against TikTok, Instagram Reels, and YouTube Shorts UI overlays. 100% private, client-side video previewer."
+    />
+    <meta name="keywords" content="TikTok safe zone, Instagram Reels safe zone, YouTube Shorts safe zone, safe margin previewer, vertical video crop tool, 1080x1920 safe area, video hook test" />
+    <meta name="author" content="Safe Zone Studio" />
+
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shorts & Reels Safe Zone Previewer — Free TikTok, Reels & Shorts Overlay Tool" />
+    <meta
+      property="og:description"
+      content="Test your vertical video hooks, text captions, and stickers against TikTok, Instagram Reels, and YouTube Shorts UI overlays. 100% private & client-side."
+    />
+    <meta property="og:site_name" content="Shorts & Reels Safe Zone Previewer" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shorts & Reels Safe Zone Previewer — Free TikTok, Reels & Shorts Overlay Tool" />
+    <meta
+      name="twitter:description"
+      content="Test your vertical video hooks, text captions, and stickers against TikTok, Instagram Reels, and YouTube Shorts UI overlays. 100% private & client-side."
+    />
+
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              tiktok: {
+                cyan: '#00f2fe',
+                red: '#fe2c55',
+                dark: '#010101',
+              },
+              reels: {
+                pink: '#E1306C',
+                purple: '#833AB4',
+                orange: '#F77737',
+              },
+              shorts: {
+                red: '#FF0000',
+              },
+            },
+            animation: {
+              'spin-slow': 'spin 5s linear infinite',
+              'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Lucide Icons (via CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- JSON-LD Structured Data: WebApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Shorts & Reels Safe Zone Previewer",
+        "url": "https://safezonepreviewer.com",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Video API.",
+        "description": "Test your vertical 9:16 video hooks, text captions, and graphics against TikTok, Instagram Reels, and YouTube Shorts UI overlays. 100% client-side privacy.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "TikTok UI overlay simulation with live interactive buttons",
+          "Instagram Reels UI overlay simulation",
+          "YouTube Shorts UI overlay simulation",
+          "Color-coded safe margin danger zones for 1080x1920 vertical video",
+          "4:5 Instagram Feed crop guide preview",
+          "1:1 Profile grid square crop guide preview",
+          "100% private client-side processing using browser ObjectURL API",
+          "High performance native video scrubber and loop controls"
+        ]
+      }
+    </script>
+
+    <!-- JSON-LD Structured Data: FAQPage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the safe zone dimensions for 9:16 vertical video (1080x1920)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For a standard 1080x1920 vertical video, the Golden Safe Zone is roughly 880x1240 pixels centered on the screen. Avoid placing critical text in the top 220px (where platform search bars and header tabs sit), the bottom 400px (where creator handles, captions, and sound titles appear), and the right 160px (where like, comment, and share icons live)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool upload my video to a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The Shorts & Reels Safe Zone Previewer runs 100% client-side inside your browser using the HTML5 FileReader and URL.createObjectURL APIs. Zero bytes of video or image data ever leave your computer or device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the 4:5 crop zone on Instagram Reels?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When an Instagram Reel appears in the main home feed or explore grid, it is cropped from 9:16 (1080x1920) to 4:5 (1080x1350). That means 285 pixels are clipped from both the top and bottom. Important headlines and faces should always remain within the central 1080x1350 box."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What file formats can I test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can preview any video supported by modern browsers including MP4, WebM, and MOV, as well as high-resolution images like PNG, JPG, and WebP."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      /* Dot grid background */
+      .bg-dot-pattern {
+        background-color: #fafafa;
+        background-image: radial-gradient(#d4d4d8 1.25px, transparent 1.25px);
+        background-size: 24px 24px;
+      }
+
+      /* Custom Range Slider */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: #e4e4e7;
+        border-radius: 9999px;
+        height: 6px;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #18181b;
+        cursor: pointer;
+        transition: transform 0.15s ease;
+      }
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+
+      /* Marquee sound title animation */
+      @keyframes ticker {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        display: inline-block;
+        white-space: nowrap;
+        animation: ticker 12s linear infinite;
+      }
+
+      /* Mobile Phone Mockup Shadow */
+      .phone-chassis {
+        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Shimmer effect for sample badge */
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+      .shimmer-text {
+        background: linear-gradient(90deg, #6366f1 0%, #ec4899 50%, #6366f1 100%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 4s infinite linear;
+      }
+    </style>
+  </head>
+  <body class="bg-dot-pattern text-zinc-900 min-h-screen antialiased flex flex-col font-sans selection:bg-zinc-900 selection:text-white">
+    <!-- Top Site Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-zinc-900 flex items-center justify-center text-white shadow-sm ring-1 ring-zinc-900/10">
+            <i data-lucide="smartphone" class="w-5 h-5 text-zinc-100"></i>
+          </div>
+          <div>
+            <span class="font-bold text-base tracking-tight text-zinc-900 flex items-center gap-1.5">
+              SafeZone<span class="text-indigo-600">Previewer</span>
+            </span>
+            <span class="hidden sm:inline-block text-[11px] font-medium text-zinc-500 uppercase tracking-wider ml-1">
+              • TikTok • Reels • Shorts
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="hidden md:flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200/80 rounded-full text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            100% Client-Side • Zero Data Upload
+          </div>
+          <a
+            href="#guidelines-section"
+            class="text-xs font-semibold text-zinc-600 hover:text-zinc-900 px-3 py-1.5 rounded-lg hover:bg-zinc-100 transition-colors"
+          >
+            Cheat Sheet
+          </a>
+          <a
+            href="#faq-section"
+            class="text-xs font-semibold text-zinc-600 hover:text-zinc-900 px-3 py-1.5 rounded-lg hover:bg-zinc-100 transition-colors"
+          >
+            FAQ
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
+      <!-- Title & Hero Description -->
+      <section class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-zinc-100 border border-zinc-200/80 text-xs font-medium text-zinc-700 shadow-sm">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-indigo-600"></i>
+          <span>Creator Utility for Vertical Video 9:16</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-950 leading-tight">
+          Shorts & Reels <span class="text-indigo-600">Safe Zone</span> Previewer
+        </h1>
+        <p class="mt-3 text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">
+          Test your video hooks, captions, and text against TikTok, Reels, and Shorts UI overlays.
+          <span class="font-medium text-zinc-900">100% private</span> & processed entirely in your browser.
+        </p>
+      </section>
+
+      <!-- App Interface Wrapper -->
+      <section id="app-workspace" class="w-full">
+        <!-- 1. INITIAL EMPTY STATE: Prominent Drag & Drop Box -->
+        <div id="dropzone-state" class="max-w-2xl mx-auto">
+          <div
+            id="drop-area"
+            class="relative group border-2 border-dashed border-zinc-300 hover:border-indigo-500 bg-white/70 hover:bg-white rounded-3xl p-8 sm:p-12 text-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow-xl backdrop-blur-sm"
+          >
+            <input
+              type="file"
+              id="file-input"
+              accept="video/mp4,video/webm,video/quicktime,video/mov,image/png,image/jpeg,image/webp,image/jpg"
+              class="hidden"
+            />
+
+            <!-- Drag indicator icon -->
+            <div class="w-20 h-20 mx-auto mb-5 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-105 group-hover:bg-indigo-100 transition-all duration-200 shadow-inner">
+              <i data-lucide="upload-cloud" class="w-10 h-10"></i>
+            </div>
+
+            <h3 class="text-xl font-bold text-zinc-900 mb-2">
+              Drag & drop your video or image here
+            </h3>
+            <p class="text-sm text-zinc-500 max-w-md mx-auto mb-6">
+              Supports <strong class="text-zinc-700">MP4, MOV, WebM, PNG, JPG</strong> up to 4K. Your file never leaves your device.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button
+                type="button"
+                id="btn-browse"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg active:scale-95"
+              >
+                <i data-lucide="folder-open" class="w-4 h-4"></i>
+                Browse File
+              </button>
+              <button
+                type="button"
+                id="btn-sample-video"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-sm border border-indigo-200/80 transition-all active:scale-95"
+              >
+                <i data-lucide="sparkles" class="w-4 h-4 text-indigo-600"></i>
+                Try with Sample Video
+              </button>
+            </div>
+
+            <!-- Privacy reassurance note -->
+            <div class="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-center gap-6 text-xs text-zinc-400 font-medium">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="lock" class="w-3.5 h-3.5 text-zinc-500"></i> Local Browser Only
+              </span>
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-zinc-500"></i> Instant 60 FPS Preview
+              </span>
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="aspect-ratio" class="w-3.5 h-3.5 text-zinc-500"></i> 9:16 Standard
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ACTIVE STATE (POST-UPLOAD): Toolbar + Smartphone Canvas Mockup -->
+        <div id="preview-state" class="hidden flex-col items-center w-full">
+          <!-- Top Toolbar Controls -->
+          <div class="w-full max-w-4xl bg-white rounded-2xl border border-zinc-200/90 shadow-sm p-3 sm:p-4 mb-6 transition-all">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <!-- Platform Switcher Buttons -->
+              <div class="flex items-center bg-zinc-100 p-1 rounded-xl">
+                <button
+                  type="button"
+                  id="tab-tiktok"
+                  data-platform="tiktok"
+                  class="platform-btn flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white text-zinc-900 shadow-sm"
+                >
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.35 0 .69.07 1 .19v-3.5a6.38 6.38 0 0 0-1-.08 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.16 8.16 0 0 0 4.76 1.51V6.8a4.83 4.83 0 0 1-1-.11z"/>
+                  </svg>
+                  TikTok
+                </button>
+
+                <button
+                  type="button"
+                  id="tab-reels"
+                  data-platform="reels"
+                  class="platform-btn flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-zinc-600 hover:text-zinc-900"
+                >
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  Instagram Reels
+                </button>
+
+                <button
+                  type="button"
+                  id="tab-shorts"
+                  data-platform="shorts"
+                  class="platform-btn flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-zinc-600 hover:text-zinc-900"
+                >
+                  <svg class="w-4 h-4 fill-current text-red-600" viewBox="0 0 24 24">
+                    <path d="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33c-.77-.32-1.2-.5-1.2-.5s.45-.24.64-.35c1.45-.84 1.95-2.7 1.11-4.16-.84-1.45-2.7-1.95-4.16-1.11l-7.39 4.26c-1.12.65-1.8 1.83-1.8 3.12 0 1.28.68 2.47 1.8 3.12.06.03.54.27.54.27s-.45.24-.64.35c-1.45.84-1.95 2.7-1.11 4.16.84 1.45 2.7 1.95 4.16 1.11l7.39-4.26c1.12-.65 1.8-1.83 1.8-3.12 0-1.28-.68-2.47-1.8-3.12z"/>
+                  </svg>
+                  YouTube Shorts
+                </button>
+              </div>
+
+              <!-- Toggles: UI & Safe Margins -->
+              <div class="flex items-center flex-wrap gap-2">
+                <button
+                  type="button"
+                  id="toggle-ui"
+                  class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-200 text-xs font-semibold bg-zinc-900 text-white hover:bg-zinc-800 transition-colors shadow-sm"
+                  title="Toggle App UI Overlay"
+                >
+                  <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                  <span>Platform UI: <strong id="status-ui">ON</strong></span>
+                </button>
+
+                <button
+                  type="button"
+                  id="toggle-safe-zone"
+                  class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-200 text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-sm"
+                  title="Toggle Safe Zone Guides"
+                >
+                  <i data-lucide="grid" class="w-3.5 h-3.5"></i>
+                  <span>Safe Margins: <strong id="status-safe-zone">ON</strong></span>
+                </button>
+
+                <!-- 4:5 Feed Crop Toggle -->
+                <button
+                  type="button"
+                  id="toggle-feed-crop"
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-amber-300 text-amber-800 bg-amber-50 hover:bg-amber-100 text-xs font-medium transition-colors"
+                  title="Show 4:5 In-Feed Crop Zone"
+                >
+                  <i data-lucide="crop" class="w-3.5 h-3.5"></i>
+                  <span>4:5 Feed Crop</span>
+                </button>
+
+                <!-- Replace File Button -->
+                <button
+                  type="button"
+                  id="btn-replace"
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 text-zinc-700 bg-white hover:bg-zinc-50 text-xs font-semibold transition-all hover:border-zinc-400"
+                >
+                  <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                  Replace File
+                </button>
+              </div>
+            </div>
+
+            <!-- Secondary Sub-Bar: Opacity slider & Grid details -->
+            <div class="mt-3 pt-3 border-t border-zinc-100 flex flex-wrap items-center justify-between text-xs text-zinc-500 gap-3">
+              <div class="flex items-center gap-3">
+                <span class="font-medium text-zinc-600">Overlay Opacity:</span>
+                <input
+                  type="range"
+                  id="opacity-slider"
+                  min="0"
+                  max="100"
+                  value="100"
+                  class="w-24 sm:w-32 cursor-pointer"
+                />
+                <span id="opacity-val" class="font-mono text-zinc-700 w-8">100%</span>
+              </div>
+
+              <!-- Legend -->
+              <div class="flex items-center gap-3 flex-wrap">
+                <span class="flex items-center gap-1 text-[11px]">
+                  <span class="w-2.5 h-2.5 rounded-sm bg-red-500/50 border border-red-500"></span>
+                  Danger Zone (Blocked)
+                </span>
+                <span class="flex items-center gap-1 text-[11px]">
+                  <span class="w-2.5 h-2.5 rounded-sm bg-amber-500/40 border border-amber-500"></span>
+                  4:5 Feed Cut
+                </span>
+                <span class="flex items-center gap-1 text-[11px]">
+                  <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500/30 border border-emerald-500"></span>
+                  Golden Safe Zone
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Smartphone Canvas Mockup Container -->
+          <div class="relative flex flex-col items-center">
+            <!-- The Phone Chassis (iPhone Style with Bezel, Curved Corners & Dynamic Island) -->
+            <div
+              id="phone-frame"
+              class="phone-chassis relative w-[340px] sm:w-[380px] md:w-[410px] aspect-[9/16] bg-black rounded-[48px] p-3.5 ring-1 ring-zinc-900/40 select-none overflow-hidden transition-all duration-300"
+            >
+              <!-- Outer Phone Rim Inner Highlight -->
+              <div class="absolute inset-0 rounded-[48px] border-[3px] border-zinc-800/80 pointer-events-none z-40"></div>
+
+              <!-- Top Dynamic Island Pill -->
+              <div class="absolute top-6 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-full z-40 flex items-center justify-between px-2.5 shadow-md pointer-events-none">
+                <div class="w-2.5 h-2.5 rounded-full bg-zinc-900 ring-1 ring-zinc-800"></div>
+                <div class="w-3 h-3 rounded-full bg-[#0a0a14] ring-1 ring-indigo-950/40 flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-indigo-500/40"></div>
+                </div>
+              </div>
+
+              <!-- The Screen Canvas Area -->
+              <div
+                id="screen-container"
+                class="relative w-full h-full bg-zinc-950 rounded-[38px] overflow-hidden flex items-center justify-center"
+              >
+                <!-- 1. The Media Player (HTML5 Video or Image) -->
+                <video
+                  id="player-video"
+                  class="w-full h-full object-cover hidden"
+                  playsinline
+                  loop
+                  muted
+                  autoplay
+                ></video>
+                <img
+                  id="player-image"
+                  class="w-full h-full object-cover hidden"
+                  alt="Vertical Video Preview Media"
+                />
+
+                <!-- Fallback Placeholder when loading -->
+                <div id="media-loader" class="text-white text-center p-6 flex flex-col items-center gap-3">
+                  <div class="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+                  <span class="text-xs text-zinc-400">Loading media...</span>
+                </div>
+
+                <!-- 2. SAFE ZONE GUIDE OVERLAYS (Color-Coded Boundaries) -->
+                <div
+                  id="safe-zone-overlay"
+                  class="absolute inset-0 pointer-events-none z-20 transition-opacity duration-200"
+                >
+                  <!-- Top Danger Zone (Header & Status Bar: 0px to 220px on 1920p => ~11.5%) -->
+                  <div
+                    class="absolute top-0 left-0 right-0 h-[12%] bg-red-500/20 border-b-2 border-dashed border-red-500/80 flex items-end justify-center pb-1 text-[10px] font-mono font-bold text-red-200 tracking-wider shadow-sm"
+                  >
+                    <span>▲ DANGER: TOP HEADER (0 - 220px)</span>
+                  </div>
+
+                  <!-- Bottom Danger Zone (Meta, Profile, Sound: 1520px to 1920px => bottom ~22%) -->
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-[22%] bg-red-500/20 border-t-2 border-dashed border-red-500/80 flex items-start justify-center pt-1.5 text-[10px] font-mono font-bold text-red-200 tracking-wider"
+                  >
+                    <span>▼ DANGER: BOTTOM METADATA (1520 - 1920px)</span>
+                  </div>
+
+                  <!-- Right Rail Danger Zone (Action Icons: right ~16% from 30% to 80% height) -->
+                  <div
+                    class="absolute top-[28%] bottom-[22%] right-0 w-[17%] bg-red-500/20 border-l-2 border-dashed border-red-500/80 flex items-center justify-center"
+                  >
+                    <span class="text-[9px] font-mono font-bold text-red-200 rotate-90 whitespace-nowrap">
+                      RIGHT RAIL ICONS
+                    </span>
+                  </div>
+
+                  <!-- 4:5 Instagram Feed Crop Indicator (Centered 1080x1350 box => cuts 14.8% top & bottom) -->
+                  <div
+                    id="guide-feed-crop"
+                    class="hidden absolute top-[14.8%] bottom-[14.8%] left-0 right-0 border-y-2 border-dashed border-amber-400/90 pointer-events-none"
+                  >
+                    <div class="absolute -top-5 left-2 px-1.5 py-0.5 rounded bg-amber-500 text-black font-mono font-bold text-[9px] uppercase tracking-wider">
+                      4:5 Feed Crop Boundary
+                    </div>
+                  </div>
+
+                  <!-- Central Golden Safe Zone Box (Guaranteed 100% visible on all devices) -->
+                  <div
+                    class="absolute top-[13%] bottom-[23%] left-[8%] right-[18%] border border-dashed border-emerald-400/70 rounded-xl flex items-center justify-center"
+                  >
+                    <div class="px-2 py-1 rounded-md bg-emerald-950/80 border border-emerald-400/60 text-emerald-300 font-mono text-[9px] font-bold tracking-wider backdrop-blur-sm shadow-md">
+                      ✓ GOLDEN SAFE ZONE
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. PLATFORM UI OVERLAYS (SVG & CSS Exact Simulation) -->
+                <div
+                  id="platform-ui-overlay"
+                  class="absolute inset-0 pointer-events-none z-30 transition-opacity duration-200 text-white select-none overflow-hidden"
+                >
+                  <!-- 3.A: TIKTOK UI OVERLAY -->
+                  <div id="ui-tiktok" class="platform-skin relative w-full h-full flex flex-col justify-between p-4 pt-14 pb-5">
+                    <!-- TikTok Top Header -->
+                    <div class="flex items-center justify-between px-1">
+                      <div class="flex items-center gap-1.5 opacity-90">
+                        <i data-lucide="tv" class="w-5 h-5 drop-shadow"></i>
+                        <span class="text-xs font-bold drop-shadow">LIVE</span>
+                      </div>
+                      <div class="flex items-center gap-4 text-sm font-bold drop-shadow">
+                        <span class="text-white/60">Following</span>
+                        <div class="relative text-white flex flex-col items-center">
+                          <span>For You</span>
+                          <span class="w-5 h-0.5 bg-white rounded-full mt-0.5"></span>
+                        </div>
+                      </div>
+                      <div class="w-6 flex justify-end">
+                        <i data-lucide="search" class="w-5 h-5 drop-shadow"></i>
+                      </div>
+                    </div>
+
+                    <!-- TikTok Middle Content (Right-rail action buttons & Bottom left meta) -->
+                    <div class="flex items-end justify-between w-full mt-auto">
+                      <!-- Bottom Left Metadata -->
+                      <div class="w-[72%] flex flex-col gap-1.5 text-left pb-1">
+                        <div class="flex items-center gap-1.5">
+                          <span class="font-bold text-sm drop-shadow tracking-tight">@alexcreators</span>
+                          <span class="w-3.5 h-3.5 rounded-full bg-cyan-400 text-black flex items-center justify-center text-[9px] font-extrabold">✓</span>
+                        </div>
+                        <p class="text-xs text-white/95 line-clamp-2 drop-shadow leading-snug">
+                          Don't let your text captions get covered by the bottom UI! 🎯 Safe zone test #editing #creators
+                        </p>
+                        <div class="flex items-center gap-2 text-[11px] text-white/90 drop-shadow mt-0.5 overflow-hidden w-full">
+                          <i data-lucide="music-2" class="w-3.5 h-3.5 shrink-0"></i>
+                          <div class="overflow-hidden whitespace-nowrap w-full">
+                            <span class="animate-marquee inline-block font-medium">
+                              original sound - Alex Rivers • 482.1K videos &nbsp;&nbsp;&nbsp; original sound - Alex Rivers
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Right Rail Action Icons -->
+                      <div class="flex flex-col items-center gap-3.5 mb-1">
+                        <!-- Profile avatar with red plus -->
+                        <div class="relative mb-1">
+                          <div class="w-10 h-10 rounded-full border-2 border-white bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-xs font-bold shadow-md">
+                            AR
+                          </div>
+                          <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-tiktok-red text-white flex items-center justify-center text-xs font-black shadow">
+                            +
+                          </div>
+                        </div>
+
+                        <!-- Like -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <svg class="w-7 h-7 fill-white drop-shadow" viewBox="0 0 24 24">
+                              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                          </div>
+                          <span class="text-[11px] font-bold drop-shadow">1.4M</span>
+                        </div>
+
+                        <!-- Comment -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="message-circle" class="w-7 h-7 text-white fill-white/20 drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-bold drop-shadow">8,492</span>
+                        </div>
+
+                        <!-- Bookmark -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="bookmark" class="w-7 h-7 text-white fill-white/20 drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-bold drop-shadow">105.8K</span>
+                        </div>
+
+                        <!-- Share -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="share-2" class="w-7 h-7 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-bold drop-shadow">42.1K</span>
+                        </div>
+
+                        <!-- Rotating Vinyl Disc -->
+                        <div class="w-9 h-9 rounded-full bg-zinc-900 border-2 border-zinc-700 p-1 flex items-center justify-center animate-spin-slow shadow-lg">
+                          <div class="w-full h-full rounded-full bg-gradient-to-tr from-pink-500 to-amber-500 flex items-center justify-center text-[7px] font-extrabold text-white">
+                            🎵
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Seekbar Line -->
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/30">
+                      <div class="h-full bg-white w-1/3"></div>
+                    </div>
+                  </div>
+
+                  <!-- 3.B: INSTAGRAM REELS UI OVERLAY -->
+                  <div id="ui-reels" class="platform-skin hidden relative w-full h-full flex flex-col justify-between p-4 pt-14 pb-5">
+                    <!-- Reels Top Header -->
+                    <div class="flex items-center justify-between px-1">
+                      <div class="flex items-center gap-1">
+                        <span class="text-lg font-extrabold drop-shadow tracking-tight">Reels</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 drop-shadow"></i>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <i data-lucide="camera" class="w-6 h-6 drop-shadow"></i>
+                      </div>
+                    </div>
+
+                    <!-- Reels Middle / Bottom Content -->
+                    <div class="flex items-end justify-between w-full mt-auto">
+                      <!-- Bottom Left Metadata -->
+                      <div class="w-[74%] flex flex-col gap-2 text-left pb-1">
+                        <div class="flex items-center gap-2">
+                          <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 p-0.5">
+                            <div class="w-full h-full rounded-full bg-black flex items-center justify-center text-[9px] font-bold">
+                              IG
+                            </div>
+                          </div>
+                          <span class="font-bold text-xs drop-shadow">creator.official</span>
+                          <button class="px-2.5 py-0.5 rounded-md border border-white/80 text-[10px] font-bold backdrop-blur-sm">
+                            Follow
+                          </button>
+                        </div>
+
+                        <p class="text-xs text-white/95 line-clamp-2 drop-shadow leading-snug">
+                          Is your call to action getting lost behind the comment icon? Preview your safe areas! 📱👇
+                        </p>
+
+                        <div class="flex items-center gap-1.5 text-[11px] text-white/90 drop-shadow">
+                          <i data-lucide="music" class="w-3 h-3"></i>
+                          <span>Original audio • 18.2K reels</span>
+                        </div>
+                      </div>
+
+                      <!-- Right Rail Action Icons -->
+                      <div class="flex flex-col items-center gap-4 mb-1">
+                        <!-- Like -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <svg class="w-7 h-7 stroke-white fill-none stroke-2 drop-shadow" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                          </div>
+                          <span class="text-[11px] font-semibold drop-shadow">824K</span>
+                        </div>
+
+                        <!-- Comment -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="message-circle" class="w-7 h-7 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-semibold drop-shadow">3,115</span>
+                        </div>
+
+                        <!-- Share / Paper Airplane -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="send" class="w-6 h-6 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-semibold drop-shadow">49.6K</span>
+                        </div>
+
+                        <!-- Ellipsis -->
+                        <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                          <i data-lucide="more-horizontal" class="w-6 h-6 text-white drop-shadow"></i>
+                        </div>
+
+                        <!-- Audio Square Thumbnail -->
+                        <div class="w-7 h-7 rounded-md border-2 border-white bg-zinc-900 overflow-hidden flex items-center justify-center shadow">
+                          <div class="flex items-end gap-0.5 h-3">
+                            <span class="w-0.5 h-2 bg-white animate-pulse"></span>
+                            <span class="w-0.5 h-3 bg-white animate-pulse"></span>
+                            <span class="w-0.5 h-1.5 bg-white animate-pulse"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 3.C: YOUTUBE SHORTS UI OVERLAY -->
+                  <div id="ui-shorts" class="platform-skin hidden relative w-full h-full flex flex-col justify-between p-4 pt-14 pb-5">
+                    <!-- Shorts Top Header -->
+                    <div class="flex items-center justify-end gap-4 px-1">
+                      <i data-lucide="search" class="w-5 h-5 drop-shadow"></i>
+                      <i data-lucide="more-vertical" class="w-5 h-5 drop-shadow"></i>
+                    </div>
+
+                    <!-- Shorts Middle / Bottom Content -->
+                    <div class="flex items-end justify-between w-full mt-auto">
+                      <!-- Bottom Left Metadata -->
+                      <div class="w-[74%] flex flex-col gap-2 text-left pb-1">
+                        <div class="flex items-center gap-2">
+                          <div class="w-7 h-7 rounded-full bg-red-600 flex items-center justify-center text-[10px] font-black text-white shadow">
+                            YT
+                          </div>
+                          <span class="font-bold text-xs drop-shadow">@TechShortsDaily</span>
+                          <button class="px-3 py-1 rounded-full bg-white text-black text-[10px] font-bold shadow-md">
+                            Subscribe
+                          </button>
+                        </div>
+
+                        <p class="text-xs text-white/95 line-clamp-2 drop-shadow font-medium leading-snug">
+                          YouTube Shorts UI covers the bottom 25% of your video. Test text visibility here!
+                        </p>
+
+                        <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-sm text-[10px] text-white/90 w-max border border-white/10">
+                          <i data-lucide="music" class="w-2.5 h-2.5"></i>
+                          <span>Original Sound - Tech Shorts</span>
+                        </div>
+                      </div>
+
+                      <!-- Right Rail Action Icons -->
+                      <div class="flex flex-col items-center gap-3.5 mb-1">
+                        <!-- Thumbs Up -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="thumbs-up" class="w-6 h-6 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-bold drop-shadow">312K</span>
+                        </div>
+
+                        <!-- Thumbs Down / Dislike -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="thumbs-down" class="w-6 h-6 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-medium drop-shadow">Dislike</span>
+                        </div>
+
+                        <!-- Comments -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="message-square" class="w-6 h-6 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-bold drop-shadow">1.2K</span>
+                        </div>
+
+                        <!-- Share -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="share" class="w-6 h-6 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-medium drop-shadow">Share</span>
+                        </div>
+
+                        <!-- Remix -->
+                        <div class="flex flex-col items-center">
+                          <div class="w-8 h-8 flex items-center justify-center drop-shadow-md">
+                            <i data-lucide="repeat" class="w-6 h-6 text-white drop-shadow"></i>
+                          </div>
+                          <span class="text-[11px] font-medium drop-shadow">Remix</span>
+                        </div>
+
+                        <!-- Sound Box -->
+                        <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-white/30 flex items-center justify-center shadow">
+                          <div class="w-3.5 h-3.5 rounded-full bg-red-500"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Scrubber Bar -->
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+                      <div class="h-full bg-red-600 w-2/5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Media Player Playback & Scrubber Controls (Right underneath phone) -->
+            <div
+              id="player-controls"
+              class="w-full max-w-[410px] mt-4 bg-white rounded-2xl border border-zinc-200/90 shadow-sm p-3.5 transition-all"
+            >
+              <!-- Timeline Scrubber -->
+              <div class="flex items-center gap-2 mb-2.5">
+                <span id="time-current" class="text-[11px] font-mono font-medium text-zinc-500 w-10 text-right">00:00</span>
+                <input
+                  type="range"
+                  id="video-scrubber"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  class="flex-grow cursor-pointer"
+                />
+                <span id="time-duration" class="text-[11px] font-mono font-medium text-zinc-500 w-10">00:00</span>
+              </div>
+
+              <!-- Control Buttons Bar -->
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <!-- Play / Pause -->
+                  <button
+                    type="button"
+                    id="btn-play-pause"
+                    class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white flex items-center justify-center transition-colors"
+                    title="Play / Pause (Space)"
+                  >
+                    <i data-lucide="play" id="icon-play" class="w-4 h-4 fill-white"></i>
+                    <i data-lucide="pause" id="icon-pause" class="w-4 h-4 fill-white hidden"></i>
+                  </button>
+
+                  <!-- Mute / Unmute -->
+                  <button
+                    type="button"
+                    id="btn-mute"
+                    class="w-8 h-8 rounded-lg border border-zinc-200 text-zinc-700 hover:bg-zinc-100 flex items-center justify-center transition-colors"
+                    title="Toggle Audio (M)"
+                  >
+                    <i data-lucide="volume-x" id="icon-muted" class="w-4 h-4"></i>
+                    <i data-lucide="volume-2" id="icon-unmuted" class="w-4 h-4 hidden"></i>
+                  </button>
+
+                  <!-- Speed Selector -->
+                  <select
+                    id="playback-speed"
+                    class="text-xs font-semibold bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg px-2 py-1.5 border-none outline-none cursor-pointer transition-colors"
+                    title="Playback Rate"
+                  >
+                    <option value="0.5">0.5x</option>
+                    <option value="1" selected>1.0x</option>
+                    <option value="1.5">1.5x</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <!-- Fit / Fill Mode -->
+                  <button
+                    type="button"
+                    id="btn-fit-fill"
+                    class="px-2.5 py-1.5 rounded-lg border border-zinc-200 text-xs font-medium text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 transition-colors"
+                    title="Toggle Object Fit (Cover / Contain)"
+                  >
+                    <span id="fit-label">Fit: Cover</span>
+                  </button>
+
+                  <!-- Restart -->
+                  <button
+                    type="button"
+                    id="btn-restart"
+                    class="w-8 h-8 rounded-lg border border-zinc-200 text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 flex items-center justify-center transition-colors"
+                    title="Restart Video"
+                  >
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. MONETIZATION / SPONSOR SLOT -->
+      <section id="sponsor-slot" class="w-full max-w-4xl mx-auto my-12">
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-zinc-900 via-indigo-950 to-zinc-900 p-6 sm:p-8 text-white shadow-xl ring-1 ring-white/10">
+          <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-indigo-300 text-[11px] font-semibold uppercase tracking-wider mb-3">
+                <i data-lucide="sparkles" class="w-3 h-3"></i> Sponsored Creator Resource
+              </div>
+              <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
+                Level Up Your Vertical Video Workflow
+              </h2>
+              <p class="text-sm text-zinc-300 leading-relaxed">
+                Auto-generate safe-zone compliant subtitles, dynamic animated kinetic hooks, and 9:16 viral templates in seconds.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+              <a
+                href="#guidelines-section"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-zinc-100 text-zinc-950 font-bold text-sm transition-all shadow-md active:scale-95"
+              >
+                <span>Read Cheat Sheet</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PROGRAMMATIC SEO: Safe Zone Guidelines & Cheat Sheet Copy Section -->
+      <article id="guidelines-section" class="max-w-4xl mx-auto mt-14 pt-10 border-t border-zinc-200">
+        <header class="text-center mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Creator Guide 2026</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">
+            Vertical Video Safe Zone Cheat Sheet (1080 × 1920)
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto">
+            Avoid getting critical subtitles, brand logos, or hook text covered by native app buttons. Here are the exact pixel dimensions.
+          </p>
+        </header>
+
+        <!-- Comparison Table -->
+        <div class="overflow-x-auto rounded-2xl border border-zinc-200 bg-white shadow-sm mb-10">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-zinc-50 border-b border-zinc-200 text-zinc-600 font-bold">
+              <tr>
+                <th class="p-3.5 sm:p-4">Platform</th>
+                <th class="p-3.5 sm:p-4">Top Danger Margin</th>
+                <th class="p-3.5 sm:p-4">Bottom Danger Margin</th>
+                <th class="p-3.5 sm:p-4">Right Rail Margin</th>
+                <th class="p-3.5 sm:p-4">Golden Safe Box</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-100 text-zinc-800">
+              <tr class="hover:bg-zinc-50/50">
+                <td class="p-3.5 sm:p-4 font-bold flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-zinc-900"></span> TikTok
+                </td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Top 220 px</td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Bottom 400 px</td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Right 160 px</td>
+                <td class="p-3.5 sm:p-4 font-semibold text-emerald-600">880 × 1300 px</td>
+              </tr>
+              <tr class="hover:bg-zinc-50/50">
+                <td class="p-3.5 sm:p-4 font-bold flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-pink-600"></span> Instagram Reels
+                </td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Top 200 px</td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Bottom 360 px</td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Right 140 px</td>
+                <td class="p-3.5 sm:p-4 font-semibold text-emerald-600">900 × 1360 px</td>
+              </tr>
+              <tr class="hover:bg-zinc-50/50">
+                <td class="p-3.5 sm:p-4 font-bold flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span> YouTube Shorts
+                </td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Top 200 px</td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Bottom 280 px</td>
+                <td class="p-3.5 sm:p-4 font-mono text-zinc-600">Right 150 px</td>
+                <td class="p-3.5 sm:p-4 font-semibold text-emerald-600">890 × 1440 px</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 3 Golden Rules Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3">
+              <i data-lucide="eye" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-base text-zinc-900 mb-1">1. The 3-Second Hook Rule</h3>
+            <p class="text-xs text-zinc-600 leading-relaxed">
+              Place big opening text hooks at <strong>30% to 45% screen height</strong>. This is natural viewer eye-level and completely avoids top headers and right action buttons.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+              <i data-lucide="subtitles" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-base text-zinc-900 mb-1">2. Caption Placement Sweet Spot</h3>
+            <p class="text-xs text-zinc-600 leading-relaxed">
+              Keep auto-generated captions between <strong>55% and 68% height</strong>. Moving them lower guarantees they will be covered by creator handles and sound titles.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+              <i data-lucide="crop" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-base text-zinc-900 mb-1">3. The 4:5 Feed Crop Danger</h3>
+            <p class="text-xs text-zinc-600 leading-relaxed">
+              Instagram Reels shown on the main feed are cropped to <strong>1080×1350</strong> (clipping 285px top and bottom). Always test with the 4:5 toggle active before publishing.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section id="faq-section" class="pt-6">
+          <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mb-6">
+            Frequently Asked Questions
+          </h3>
+
+          <div class="space-y-4">
+            <div class="p-4 sm:p-5 rounded-xl bg-white border border-zinc-200">
+              <h4 class="font-bold text-sm sm:text-base text-zinc-900 mb-1.5 flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                Why is a Safe Zone Previewer necessary?
+              </h4>
+              <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                TikTok, Instagram Reels, and YouTube Shorts render thick UI overlays directly on top of videos: like hearts, share arrows, creator usernames, captions, and sound titles. If you place your text or face behind these buttons, your engagement drops. A safe zone previewer lets you verify placement before you post.
+              </p>
+            </div>
+
+            <div class="p-4 sm:p-5 rounded-xl bg-white border border-zinc-200">
+              <h4 class="font-bold text-sm sm:text-base text-zinc-900 mb-1.5 flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                Is my video uploaded to any server or cloud storage?
+              </h4>
+              <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                No. This tool runs 100% locally in your web browser using HTML5 File APIs. Your video never leaves your computer, laptop, or phone. It works completely offline and respects client privacy.
+              </p>
+            </div>
+
+            <div class="p-4 sm:p-5 rounded-xl bg-white border border-zinc-200">
+              <h4 class="font-bold text-sm sm:text-base text-zinc-900 mb-1.5 flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                What resolution should vertical videos be exported at?
+              </h4>
+              <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                The standard resolution is <strong>1080 × 1920 pixels</strong> (9:16 aspect ratio) in MP4 (H.264 / AAC) at 30 or 60 frames per second with a recommended video bitrate between 10 Mbps and 20 Mbps.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="mt-16 bg-white border-t border-zinc-200 py-8 text-xs text-zinc-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-md bg-zinc-900 text-white flex items-center justify-center font-bold text-[10px]">
+            SZ
+          </div>
+          <span class="font-semibold text-zinc-800">Shorts & Reels Safe Zone Previewer</span>
+          <span>© 2026. Free creator utility.</span>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-1 text-emerald-600 font-medium">
+            <i data-lucide="shield" class="w-3.5 h-3.5"></i> Private & Client-Side
+          </span>
+          <a href="#app-workspace" class="hover:text-zinc-900 font-medium transition-colors">
+            Back to Top ↑
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Client-Side JavaScript Logic -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // State Management
+      let currentFile = null;
+      let currentObjectUrl = null;
+      let activePlatform = 'tiktok';
+      let isUiVisible = true;
+      let isSafeZoneVisible = true;
+      let isFeedCropVisible = false;
+      let isCoverMode = true;
+
+      // DOM Elements
+      const dropzoneState = document.getElementById('dropzone-state');
+      const previewState = document.getElementById('preview-state');
+      const dropArea = document.getElementById('drop-area');
+      const fileInput = document.getElementById('file-input');
+      const btnBrowse = document.getElementById('btn-browse');
+      const btnSampleVideo = document.getElementById('btn-sample-video');
+      const btnReplace = document.getElementById('btn-replace');
+
+      const videoPlayer = document.getElementById('player-video');
+      const imagePlayer = document.getElementById('player-image');
+      const mediaLoader = document.getElementById('media-loader');
+      const safeZoneOverlay = document.getElementById('safe-zone-overlay');
+      const platformUiOverlay = document.getElementById('platform-ui-overlay');
+      const guideFeedCrop = document.getElementById('guide-feed-crop');
+
+      // Platform Skins
+      const uiTikTok = document.getElementById('ui-tiktok');
+      const uiReels = document.getElementById('ui-reels');
+      const uiShorts = document.getElementById('ui-shorts');
+
+      // Platform Buttons
+      const tabTikTok = document.getElementById('tab-tiktok');
+      const tabReels = document.getElementById('tab-reels');
+      const tabShorts = document.getElementById('tab-shorts');
+
+      // Toggles
+      const toggleUiBtn = document.getElementById('toggle-ui');
+      const statusUi = document.getElementById('status-ui');
+      const toggleSafeZoneBtn = document.getElementById('toggle-safe-zone');
+      const statusSafeZone = document.getElementById('status-safe-zone');
+      const toggleFeedCropBtn = document.getElementById('toggle-feed-crop');
+      const opacitySlider = document.getElementById('opacity-slider');
+      const opacityVal = document.getElementById('opacity-val');
+
+      // Media Controls
+      const btnPlayPause = document.getElementById('btn-play-pause');
+      const iconPlay = document.getElementById('icon-play');
+      const iconPause = document.getElementById('icon-pause');
+      const videoScrubber = document.getElementById('video-scrubber');
+      const timeCurrent = document.getElementById('time-current');
+      const timeDuration = document.getElementById('time-duration');
+      const btnMute = document.getElementById('btn-mute');
+      const iconMuted = document.getElementById('icon-muted');
+      const iconUnmuted = document.getElementById('icon-unmuted');
+      const playbackSpeed = document.getElementById('playback-speed');
+      const btnFitFill = document.getElementById('btn-fit-fill');
+      const fitLabel = document.getElementById('fit-label');
+      const btnRestart = document.getElementById('btn-restart');
+
+      // File Browser Trigger
+      btnBrowse.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fileInput.click();
+      });
+
+      dropArea.addEventListener('click', () => {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          loadMediaFile(e.target.files[0]);
+        }
+      });
+
+      // Drag and Drop handlers
+      ['dragenter', 'dragover'].forEach((eventName) => {
+        dropArea.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropArea.classList.add('border-indigo-600', 'bg-indigo-50/50');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach((eventName) => {
+        dropArea.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropArea.classList.remove('border-indigo-600', 'bg-indigo-50/50');
+        });
+      });
+
+      dropArea.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        if (dt.files && dt.files[0]) {
+          loadMediaFile(dt.files[0]);
+        }
+      });
+
+      // Replace Media
+      btnReplace.addEventListener('click', () => {
+        fileInput.value = '';
+        fileInput.click();
+      });
+
+      // Load File (Video or Image)
+      function loadMediaFile(file) {
+        if (!file) return;
+
+        // Cleanup existing ObjectURL to prevent memory leaks
+        if (currentObjectUrl) {
+          URL.revokeObjectURL(currentObjectUrl);
+          currentObjectUrl = null;
+        }
+
+        currentFile = file;
+        currentObjectUrl = URL.createObjectURL(file);
+
+        // Switch View
+        dropzoneState.classList.add('hidden');
+        previewState.classList.remove('hidden');
+        previewState.classList.add('flex');
+        mediaLoader.classList.remove('hidden');
+
+        const isVideo = file.type.startsWith('video/') || /\.(mp4|webm|mov|m4v)$/i.test(file.name);
+
+        if (isVideo) {
+          imagePlayer.classList.add('hidden');
+          videoPlayer.classList.remove('hidden');
+          videoPlayer.src = currentObjectUrl;
+          videoPlayer.muted = true;
+          videoPlayer.play().catch(() => {});
+          document.getElementById('player-controls').classList.remove('opacity-40', 'pointer-events-none');
+        } else {
+          // Image file
+          videoPlayer.pause();
+          videoPlayer.classList.add('hidden');
+          imagePlayer.classList.remove('hidden');
+          imagePlayer.src = currentObjectUrl;
+          mediaLoader.classList.add('hidden');
+          document.getElementById('player-controls').classList.add('opacity-40', 'pointer-events-none');
+        }
+
+        // Scroll to preview smoothly
+        previewState.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Built-in Dynamic Canvas Sample Generator (Produces a full 9:16 interactive demo video)
+      btnSampleVideo.addEventListener('click', () => {
+        generateSampleCanvasVideo();
+      });
+
+      function generateSampleCanvasVideo() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1080;
+        canvas.height = 1920;
+        const ctx = canvas.getContext('2d');
+
+        let frame = 0;
+        function drawFrame() {
+          frame++;
+          const timeSec = (frame / 30).toFixed(1);
+
+          // Dynamic gradient background
+          const grad = ctx.createLinearGradient(0, 0, 1080, 1920);
+          grad.addColorStop(0, '#1e1b4b');
+          grad.addColorStop(0.5, '#312e81');
+          grad.addColorStop(1, '#0f172a');
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, 0, 1080, 1920);
+
+          // Moving grid lines
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+          ctx.lineWidth = 2;
+          for (let y = (frame * 2) % 60; y < 1920; y += 60) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(1080, y);
+            ctx.stroke();
+          }
+
+          // TOP DANGER ZONE SIMULATION (Wrong text placement)
+          ctx.fillStyle = '#ef4444';
+          ctx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('❌ WRONG: Blocked by search & top tabs!', 540, 140);
+
+          // GOLDEN SAFE HOOK ZONE (Best practice placement)
+          ctx.fillStyle = '#10b981';
+          ctx.beginPath();
+          ctx.roundRect(140, 500, 800, 200, 24);
+          ctx.fill();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '800 52px "Plus Jakarta Sans", sans-serif';
+          ctx.fillText('✅ GOLDEN HOOK ZONE', 540, 580);
+          ctx.font = '500 36px "Plus Jakarta Sans", sans-serif';
+          ctx.fillText('Put critical headlines & faces here', 540, 640);
+
+          // SUBTITLE / CAPTION SWEET SPOT
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '700 48px "Plus Jakarta Sans", sans-serif';
+          ctx.shadowColor = 'rgba(0,0,0,0.8)';
+          ctx.shadowBlur = 10;
+          ctx.fillText(`"Testing animated captions [${timeSec}s]"`, 540, 1180);
+          ctx.shadowBlur = 0;
+
+          // RIGHT RAIL DANGER ZONE SIMULATION
+          ctx.fillStyle = '#f59e0b';
+          ctx.font = 'bold 30px "Plus Jakarta Sans", sans-serif';
+          ctx.save();
+          ctx.translate(980, 1000);
+          ctx.rotate(Math.PI / 2);
+          ctx.fillText('👉 Covered by Like/Comment', 0, 0);
+          ctx.restore();
+
+          // BOTTOM DANGER ZONE SIMULATION
+          ctx.fillStyle = '#ef4444';
+          ctx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
+          ctx.fillText('❌ WRONG: Covered by username & caption', 540, 1680);
+
+          // Center Animated Pulsing Badge
+          const pulse = Math.sin(frame * 0.1) * 15;
+          ctx.fillStyle = 'rgba(99, 102, 241, 0.4)';
+          ctx.beginPath();
+          ctx.arc(540, 900, 90 + pulse, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 32px "Plus Jakarta Sans", sans-serif';
+          ctx.fillText('1080 × 1920', 540, 910);
+        }
+
+        // Draw initial frame
+        drawFrame();
+
+        // Convert canvas stream to video if captureStream is available
+        if (canvas.captureStream) {
+          const stream = canvas.captureStream(30);
+          const intervalId = setInterval(drawFrame, 1000 / 30);
+
+          // Switch UI view
+          dropzoneState.classList.add('hidden');
+          previewState.classList.remove('hidden');
+          previewState.classList.add('flex');
+          mediaLoader.classList.add('hidden');
+
+          imagePlayer.classList.add('hidden');
+          videoPlayer.classList.remove('hidden');
+          videoPlayer.srcObject = stream;
+          videoPlayer.muted = true;
+          videoPlayer.play().catch(() => {});
+
+          // Clean up stream interval when replacing
+          btnReplace.addEventListener('click', () => clearInterval(intervalId), { once: true });
+        } else {
+          // Fallback to canvas static image data URL
+          canvas.toBlob((blob) => {
+            loadMediaFile(blob);
+          });
+        }
+      }
+
+      // Video Event Listeners
+      videoPlayer.addEventListener('loadedmetadata', () => {
+        mediaLoader.classList.add('hidden');
+        timeDuration.textContent = formatTime(videoPlayer.duration || 0);
+      });
+
+      videoPlayer.addEventListener('timeupdate', () => {
+        if (!isNaN(videoPlayer.duration) && videoPlayer.duration > 0) {
+          const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+          videoScrubber.value = progress;
+          timeCurrent.textContent = formatTime(videoPlayer.currentTime);
+        }
+      });
+
+      videoPlayer.addEventListener('play', () => {
+        iconPlay.classList.add('hidden');
+        iconPause.classList.remove('hidden');
+      });
+
+      videoPlayer.addEventListener('pause', () => {
+        iconPlay.classList.remove('hidden');
+        iconPause.classList.add('hidden');
+      });
+
+      // Scrubber Interaction
+      videoScrubber.addEventListener('input', (e) => {
+        if (videoPlayer.duration) {
+          const seekTime = (e.target.value / 100) * videoPlayer.duration;
+          videoPlayer.currentTime = seekTime;
+        }
+      });
+
+      // Play/Pause Button
+      btnPlayPause.addEventListener('click', () => {
+        if (videoPlayer.paused) {
+          videoPlayer.play();
+        } else {
+          videoPlayer.pause();
+        }
+      });
+
+      // Mute Toggle
+      btnMute.addEventListener('click', () => {
+        videoPlayer.muted = !videoPlayer.muted;
+        if (videoPlayer.muted) {
+          iconMuted.classList.remove('hidden');
+          iconUnmuted.classList.add('hidden');
+        } else {
+          iconMuted.classList.add('hidden');
+          iconUnmuted.classList.remove('hidden');
+        }
+      });
+
+      // Playback Speed
+      playbackSpeed.addEventListener('change', (e) => {
+        videoPlayer.playbackRate = parseFloat(e.target.value);
+      });
+
+      // Fit / Fill Toggle
+      btnFitFill.addEventListener('click', () => {
+        isCoverMode = !isCoverMode;
+        if (isCoverMode) {
+          videoPlayer.classList.remove('object-contain');
+          videoPlayer.classList.add('object-cover');
+          imagePlayer.classList.remove('object-contain');
+          imagePlayer.classList.add('object-cover');
+          fitLabel.textContent = 'Fit: Cover';
+        } else {
+          videoPlayer.classList.remove('object-cover');
+          videoPlayer.classList.add('object-contain');
+          imagePlayer.classList.remove('object-cover');
+          imagePlayer.classList.add('object-contain');
+          fitLabel.textContent = 'Fit: Contain';
+        }
+      });
+
+      // Restart Video
+      btnRestart.addEventListener('click', () => {
+        videoPlayer.currentTime = 0;
+        videoPlayer.play();
+      });
+
+      // Platform Switcher
+      const platformTabs = [
+        { id: 'tab-tiktok', skin: uiTikTok, name: 'tiktok' },
+        { id: 'tab-reels', skin: uiReels, name: 'reels' },
+        { id: 'tab-shorts', skin: uiShorts, name: 'shorts' },
+      ];
+
+      platformTabs.forEach((tab) => {
+        const btn = document.getElementById(tab.id);
+        btn.addEventListener('click', () => {
+          activePlatform = tab.name;
+
+          // Update active buttons styling
+          platformTabs.forEach((t) => {
+            const b = document.getElementById(t.id);
+            if (t.name === activePlatform) {
+              b.classList.add('bg-white', 'text-zinc-900', 'shadow-sm');
+              b.classList.remove('text-zinc-600');
+              t.skin.classList.remove('hidden');
+            } else {
+              b.classList.remove('bg-white', 'text-zinc-900', 'shadow-sm');
+              b.classList.add('text-zinc-600');
+              t.skin.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Toggle Platform UI
+      toggleUiBtn.addEventListener('click', () => {
+        isUiVisible = !isUiVisible;
+        if (isUiVisible) {
+          platformUiOverlay.classList.remove('opacity-0');
+          statusUi.textContent = 'ON';
+          toggleUiBtn.classList.replace('bg-zinc-600', 'bg-zinc-900');
+        } else {
+          platformUiOverlay.classList.add('opacity-0');
+          statusUi.textContent = 'OFF';
+          toggleUiBtn.classList.replace('bg-zinc-900', 'bg-zinc-600');
+        }
+      });
+
+      // Toggle Safe Zone
+      toggleSafeZoneBtn.addEventListener('click', () => {
+        isSafeZoneVisible = !isSafeZoneVisible;
+        if (isSafeZoneVisible) {
+          safeZoneOverlay.classList.remove('opacity-0');
+          statusSafeZone.textContent = 'ON';
+          toggleSafeZoneBtn.classList.replace('bg-zinc-600', 'bg-emerald-600');
+        } else {
+          safeZoneOverlay.classList.add('opacity-0');
+          statusSafeZone.textContent = 'OFF';
+          toggleSafeZoneBtn.classList.replace('bg-emerald-600', 'bg-zinc-600');
+        }
+      });
+
+      // Toggle 4:5 Feed Crop
+      toggleFeedCropBtn.addEventListener('click', () => {
+        isFeedCropVisible = !isFeedCropVisible;
+        if (isFeedCropVisible) {
+          guideFeedCrop.classList.remove('hidden');
+          toggleFeedCropBtn.classList.add('bg-amber-200', 'border-amber-400');
+        } else {
+          guideFeedCrop.classList.add('hidden');
+          toggleFeedCropBtn.classList.remove('bg-amber-200', 'border-amber-400');
+        }
+      });
+
+      // Opacity Slider for Overlays
+      opacitySlider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        opacityVal.textContent = `${val}%`;
+        platformUiOverlay.style.opacity = val / 100;
+      });
+
+      // Keyboard Shortcuts
+      window.addEventListener('keydown', (e) => {
+        // Space to toggle play/pause
+        if (e.code === 'Space' && previewState.classList.contains('flex') && e.target.tagName !== 'INPUT') {
+          e.preventDefault();
+          btnPlayPause.click();
+        }
+        // 'M' to toggle mute
+        if ((e.key === 'm' || e.key === 'M') && e.target.tagName !== 'INPUT') {
+          btnMute.click();
+        }
+        // '1', '2', '3' to switch platform
+        if (e.key === '1') tabTikTok.click();
+        if (e.key === '2') tabReels.click();
+        if (e.key === '3') tabShorts.click();
+      });
+
+      // Helper: Format Seconds to MM:SS
+      function formatTime(seconds) {
+        if (isNaN(seconds)) return '00:00';
+        const m = Math.floor(seconds / 60);
+        const s = Math.floor(seconds % 60);
+        return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      }
+    </script>
+  </body>
+</html>
